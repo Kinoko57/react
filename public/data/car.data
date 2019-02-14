@@ -1,0 +1,21 @@
+[{
+    "url":"/images/upload/goods008.jpg",
+	"content":"阳澄湖大闸蟹",
+	"id":"1",
+	"oldPrice":"66.6",
+	"nowPrice":"55.5"
+},{
+    "id":"2",
+    "content":"豆腐干2kg装",
+    "url":"/images/upload/goods009.jpg",
+    "count":"1",
+    "oldPrice":"5.49",
+    "nowPrice":"3.99"
+},{
+    "id":"3",
+    "content":"优质牛肉特价",
+    "url":"/images/upload/goods007.jpg",
+    "count":"1",
+    "oldPrice":"28.99",
+    "nowPrice":"23.29"
+}]

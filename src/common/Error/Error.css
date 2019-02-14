@@ -1,0 +1,2 @@
+.notFound{display:block;background:none;text-align:center;color:grey;}
+.notFound:before{display:block;content:"@";font-family:'freshregular';font-size:2rem;}

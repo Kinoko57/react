@@ -1,0 +1,7 @@
+/* .nav{position:fixed;bottom:0;width:100%;height:1rem;line-height:1rem;background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8f8f8), color-stop(1, #f1f1f1));border-top:1px #f4f4f4 solid;display:box;display:-webkit-box;display:-moz-box;}
+.nav a{display:block;-webkit-box-flex:1;-moz-box-flex:1;text-align:center;color:grey;line-height:1.2;color:#31bd80;text-shadow:0 1px 1px white;}
+.nav a:before{display:block;font-family:'freshregular';font-size:.5rem;}
+.nav .homeIcon:before{content:"H";}
+.nav .categoryIcon:before{content:"C";}
+.nav .cartIcon:before{content:"G";}
+.nav .userIcon:before{content:"U";} */

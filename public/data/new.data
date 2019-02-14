@@ -1,0 +1,19 @@
+[{
+	"url":"/images/upload/goods004.jpg",
+	"content":"新鲜土豆三斤装特惠",
+	"id":1,
+	"oldPrice":"20.5",
+	"nowPrice":"15.5"	
+},{
+	"url":"/images/upload/goods008.jpg",
+	"content":"阳澄湖大闸蟹",
+	"id":2,
+	"oldPrice":"66.6",
+	"nowPrice":"55.5"
+},{
+	"url":"/images/upload/goods009.jpg",
+	"content":"新鲜豆制品二斤装",
+	"id":3,
+	"oldPrice":"33.2",
+	"nowPrice":"20.8"
+}]

@@ -1,0 +1,10 @@
+export const VIEW_BHEADER='VIEW_BHEADER';
+export const VIEW_BFOOTER='VIEW_BFOOTER';
+export const VIEW_BLOADING='VIEW_BLOADING';
+export const CHECK_USER='CHECK_USER';
+export const VIEW_HOME='VIEW_HOME';
+export const VIEW_NEW='VIEW_NEW';
+export const VIEW_REDUCE='VIEW_REDUCE';
+export const VIEW_PRODUCT='VIEW_PRODUCT';
+export const VIEW_PRODUCTINFO='VIEW_PRODUCTINFO';
+export const VIEW_CAR='VIEW_CAR';

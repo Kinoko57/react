@@ -1,0 +1,46 @@
+[{
+	"url":"/images/upload/goods002.jpg",
+	"content":"红萝卜3斤装",
+	"id":"1",
+	"oldPrice":"12.90",
+	"nowPrice":"8.90"
+},{
+	"url":"/images/upload/goods003.jpg",
+	"content":"西红柿5斤装",
+	"id":"2",
+	"oldPrice":"9.90",
+	"nowPrice":"6.90"
+},{
+	"url":"/images/upload/goods005.jpg",
+	"content":"鲜美肥鱼，口味独特",
+	"id":"3",
+	"oldPrice":"30.2",
+	"nowPrice":"183.8"
+},{
+	"url":"/images/upload/goods006.jpg",
+	"content":"肉质肥美，合肥老母鸡",
+	"id":"4",
+	"oldPrice":"33.2",
+	"nowPrice":"20.8"
+},
+{
+	"url":"/images/upload/goods007.jpg",
+	"content":"特惠牛排,劲爆可口",
+	"id":"5",
+	"oldPrice":"15.9",
+	"nowPrice":"33.0"
+},
+{
+	"url":"/images/upload/goods008.jpg",
+	"content":"阳澄湖大闸蟹",
+	"id":"6",
+	"oldPrice":"66.6",
+	"nowPrice":"55.5"
+},
+{
+	"url":"/images/upload/goods009.jpg",
+	"content":"新鲜豆制品二斤装",
+	"id":"7",
+	"oldPrice":"33.2",
+	"nowPrice":"20.8"
+}]
