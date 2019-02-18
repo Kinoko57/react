@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import asynList from '../../store/actions/asynList';
-import * as types from '../../store/types'
+import * as types from '../../store/types';
+let sTop=0;
 // import pubsub from 'pubsub-js';
 class HomeCenterNew extends Component{
     // state={
@@ -24,8 +25,13 @@ class HomeCenterNew extends Component{
     //     // )
     // }
     componentDidMount(){
-        this.props.get();
-    }
+        window.scrollTo(0,sTop)
+          this.props.get();
+      }
+       componentWillUnmount(){
+           sTop=document.documentElement.scrollTop;
+           console.log(sTop)
+       }
     render(){
         let {news}=this.props;
         return (

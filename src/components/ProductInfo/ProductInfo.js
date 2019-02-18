@@ -82,7 +82,8 @@ class ProductInfo extends Component{
                     </dl>
                     <div style={{"height":"1rem"}}></div>
                     <aside className="btmNav">
-                    <a style={{"background":"#64ab5b","color":"white","textShadow":"none"}}>加入购物车</a>
+                    <a style={{"background":"#64ab5b","color":"white","textShadow":"none"}} onClick={
+				 this.props.add.bind(null,productinfo)}>加入购物车</a>
                     <a style={{"background":"#87a983","color":"white","textShadow":"none"}}>加入常购单</a>
                     </aside>
             </div>
@@ -97,7 +98,13 @@ const initMatDispathToProps=dispatch=>({
         id:id,
         type:types.VIEW_PRODUCTINFO,
         url:`/data/${dataName}.data`,
-    })) 
+    })), 
+    add:(obj)=>{
+        dispatch({
+            type:types.ADD_ITEM,
+            payload:obj
+        })
+    }
 })
 export default connect(
     initMapStateToProps,

@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import Hometop from "../Hometop/Hometop";
 import Homecenter from "../Homecenter/Homecenter";
 import ReactSwipe from 'react-swipe';
+let sTop=0;
 class Home extends Component{
     render(){
         return (

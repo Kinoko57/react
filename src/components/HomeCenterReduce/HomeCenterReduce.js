@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 // import pubsub from 'pubsub-js';
 import {connect} from 'react-redux';
 import asynList from '../../store/actions/asynList';
-import * as types from '../../store/types'
+import * as types from '../../store/types';
+let sTop=0;
 class HomeCenterReduce extends Component{
     // state={
     //     list:[]
@@ -24,8 +25,13 @@ class HomeCenterReduce extends Component{
     //     )
     // }
     componentDidMount(){
-        this.props.get();
-    }
+        window.scrollTo(0,sTop)
+          this.props.get();
+      }
+       componentWillUnmount(){
+           sTop=document.documentElement.scrollTop;
+           console.log(sTop)
+       }
     render(){
         let {reduce}=this.props;
         return (

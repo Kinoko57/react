@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import asynList from '../../store/actions/asynList';
+// import asynList from '../../store/actions/asynList';
 import * as types from '../../store/types'
 // import pubsub from 'pubsub-js';
 class Car extends Component{
@@ -23,11 +23,11 @@ class Car extends Component{
     //         }
     //     )
     // }
-    componentDidMount(){
-        this.props.get();
-    }
+    // componentDidMount(){
+    //     this.props.get();
+    // }
     render(){
-        let {car}=this.props;
+        let {buycar}=this.props;
         return (
             <div>
                     <header>
@@ -38,32 +38,31 @@ class Car extends Component{
                     <dl className="cart">
                         <dt>
                             <label><input type="checkbox"/>全选</label>
-                            <a className="edit">编辑</a>
+                            <a className="edit" onClick={this.bianji.bind(this)}>编辑</a>
                         </dt>
                         {
-                            car.map((item,index)=>(
-
+                            buycar.map((item,index)=>(
                             <dd key={index}>
-                                <Link to={{pathname:'/productinfo/'+item.id,search:'?dataName=car'}}>
+                                {/* <Link to={{pathname:'/productinfo/'+item.id,search:'?dataName=car'}}> */}
                                 <input type="checkbox"/>
                                 <b className="goodsPic"><img src={item.url}/></b>
                                 <div className="goodsInfor">
                                     <h2>
                                         <b href="product.html">{item.content}</b>
-                                        <span>1</span>
+                                        <span>{item.number}</span>
                                     </h2>
                                     <div className="priceArea">
                                         <strong>{item.nowPrice}</strong>
                                         <del>{item.oldPrice}</del>
                                     </div>
                                     <div className="numberWidget">
-                                        <input type="button" value="-" className="minus"/>
-                                        <input type="text" value="1" disabled  className="number"/>
-                                        <input type="button" value="+"  className="plus"/>
+                                        <input type="button" value="-" className="minus" onClick={this.props.redValue.bind(null,item)}/>
+                                        <input type="text" value={item.number} disabled  className="number"/>
+                                        <input type="button" value="+"  className="plus" onClick={this.props.addValue.bind(null,item)}/>
                                     </div>
                                 </div>
-                                <b className="delBtn">删除</b>
-                                </Link>
+                                <b className="delBtn" onClick={this.props.del.bind(null,item)}>删除</b>
+                                {/* </Link> */}
                             </dd>
                             ))
                         }  
@@ -76,17 +75,86 @@ class Car extends Component{
             </div>
         )
     }
+    bianji(){
+        // document.getElementsByClassName(".edit")[0].onclick=function(){
+            console.log(document.getElementsByClassName("edit")[0])
+            if(document.getElementsByClassName("edit")[0].innerHTML=="编辑"){
+                document.getElementsByClassName("edit")[0].innerHTML="完成";
+                let list=document.getElementsByClassName("numberWidget");
+                let clear=document.getElementsByClassName("delBtn");
+                let price=document.getElementsByClassName("priceArea")
+                console.log(list)
+               for(var i=0;i<list.length;i++){
+                list[i].style.display="block";
+               }
+               for(var i=0;i<clear.length;i++){
+                clear[i].style.display="block";
+               }
+               for(var i=0;i<price.length;i++){
+                price[i].style.display="none";
+               }
+            }else{
+                document.getElementsByClassName("edit")[0].innerHTML="编辑";
+                let list=document.getElementsByClassName("numberWidget");
+                let clear=document.getElementsByClassName("delBtn");
+                let price=document.getElementsByClassName("priceArea")
+                console.log(list)
+               for(var i=0;i<list.length;i++){
+                list[i].style.display="none";
+               }
+               for(var i=0;i<clear.length;i++){
+                clear[i].style.display="none";
+               }
+               for(var i=0;i<price.length;i++){
+                price[i].style.display="block";
+               }
+            }
+
+    }
 }
-const initMapStateToProps=state=>({
-    car:state.car
+// const initMapStateToProps=state=>({
+//     car:state.car
+// })
+// const initMatDispathToProps=dispatch=>({
+//     get:()=>dispatch(asynList({
+//         type:types.VIEW_CAR,
+//         url:'/data/car.data'
+//     }))
+// })
+// export default connect(
+//     initMapStateToProps,
+//     initMatDispathToProps
+// )(Car);
+
+const initMapStateToProps = state =>({
+	buycar:state.buycar
 })
-const initMatDispathToProps=dispatch=>({
-    get:()=>dispatch(asynList({
-        type:types.VIEW_CAR,
-        url:'/data/car.data'
-    }))
+
+const initMapDispatchToProps = dispatch => ({
+	del:(del)=>{
+		dispatch({
+			type:types.REMOVE_ITEM,
+			payload:del
+		})	
+	},
+	addValue:(item)=>{
+		dispatch({
+			type:types.ADD_NUMBER,
+			payload:item
+		})	
+	},
+	redValue:(item)=>{
+		dispatch({
+			type:types.RED_NUMBER,
+			payload:item
+		})	
+	},
+
+
 })
+
+
 export default connect(
-    initMapStateToProps,
-    initMatDispathToProps
-)(Car);
+	initMapStateToProps,
+   initMapDispatchToProps
+)(Car)

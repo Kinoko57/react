@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import asynList from '../../store/actions/asynList';
-import * as types from '../../store/types'
+import * as types from '../../store/types';
+let sTop=0;
 // import pubsub from 'pubsub-js';
 class Product extends Component{
     // state={
@@ -25,7 +26,11 @@ class Product extends Component{
     // }
 
    componentDidMount(){
+        window.scrollTo(0,sTop)
         this.props.get();
+    }
+    componentWillUnmount(){
+        sTop=document.documentElement.scrollTop;
     }
     render(){
         let {product}=this.props;
@@ -43,10 +48,10 @@ class Product extends Component{
                     <li>
                     <a className="nav_li drop_icon">品牌筛选</a>
                     <ul className="drop_list">
-                        <li><a>品牌名</a></li>
-                        <li><a>品牌名</a></li>
-                        <li><a>品牌名</a></li>
-                        <li><a>品牌名</a></li>
+                        <li><a>优美食品</a></li>
+                        <li><a>乐尚品</a></li>
+                        <li><a>乐乐够拼</a></li>
+                        <li><a>详情品尚</a></li>
                     </ul>
                     </li>
                     </ul>

@@ -3,17 +3,20 @@
 	"content":"鲜美肥鱼，口味独特",
 	"id":1,
 	"oldPrice":"30.2",
+	"number":1,
 	"nowPrice":"18.8"
 },{
     "url":"/images/upload/goods006.jpg",
 	"content":"肉质肥美，合肥老母鸡",
 	"id":2,
 	"oldPrice":"33.2",
+	"number":1,
 	"nowPrice":"20.8"
 },{
     "url":"/images/upload/goods007.jpg",
 	"content":"特惠牛排,劲爆可口",
 	"id":3,
 	"oldPrice":"15.9",
+	"number":1,
 	"nowPrice":"33.0"
 }]

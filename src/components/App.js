@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
+import Loadable from 'react-loadable';
 import Header from "../common/Header/Header";
 import Home from "./Home/Home";
-import Car from "./Car/Car";
-import Sort from './Sort/Sort';
+// import Car from "./Car/Car";
+
+// import Sort from './Sort/Sort';
 import User from './User/User';
 import Login from './Login/Login';
 import Reg from './Reg/Reg';
@@ -21,7 +23,16 @@ import Loading from '../common/loading/components/loading';
 import {Route,Redirect,Switch} from 'react-router-dom';
 import Auth from "../guard/Auth";
 import {connect} from 'react-redux';
-import * as types from '../store/types'
+import * as types from '../store/types';
+const Car=Loadable({
+    loader:()=>import('./Car/Car'),
+    loading:Loading
+});
+const Sort=Loadable({
+    loader:()=>import('./Sort/Sort'),
+    loading:Loading
+    // loading:()=>{return null}
+});
 // import pubsub from 'pubsub-js';
 class App extends Component{
     // constructor(){
@@ -38,10 +49,6 @@ class App extends Component{
     // }
     componentWillReceiveProps(nextProps){
         let path=nextProps.location.pathname;
-        this.watchRouter(path)
-    }
-    componentDidMount(){
-        let path=this.props.location.pathname;
         this.watchRouter(path)
     }
     watchRouter(path){
@@ -72,6 +79,10 @@ class App extends Component{
             viewHeader(false);
             viewFooter(false)
          }
+    }
+    componentDidMount(){
+        let path=this.props.location.pathname;
+        this.watchRouter(path)
     }
     render(){
         let {bHeader,bFooter,bLoading}=this.props;
@@ -104,7 +115,6 @@ class App extends Component{
                 {this.state.bFooter &&  <Footer/>} */}
                 {bLoading &&  <Loading/>}
                 {bFooter &&  <Footer/>}
-                <Footer></Footer>
             </>
         )
     }

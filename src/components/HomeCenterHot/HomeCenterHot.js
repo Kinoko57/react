@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 import Home from '../Home/Home';
 import {connect} from 'react-redux';
 import asynList from '../../store/actions/asynList';
-import * as types from '../../store/types'
+import * as types from '../../store/types';
+let sTop=0;
 // import pubsub from 'pubsub-js';
 class HomeCenterHot extends Component{
     //非状态管理
@@ -27,8 +28,13 @@ class HomeCenterHot extends Component{
     // }
     //也可以在构造器中读数据
    componentDidMount(){
+     window.scrollTo(0,sTop)
        this.props.get();
    }
+    componentWillUnmount(){
+        sTop=document.documentElement.scrollTop;
+        console.log(sTop)
+    }
     render(){
         let {home}=this.props;
         console.log(home)
@@ -72,7 +78,14 @@ const initMatDispathToProps=dispatch=>({
     get:()=>dispatch(asynList({
         type:types.VIEW_HOME,
         url:'/data/home.data'
-    }))
+    })),
+    add:(obj)=>{
+        dispatch({
+            type:types.ADD_ITEM,
+            payload:obj
+        })
+    }
+
 })
 export default connect(
     initMapStateToProps,
